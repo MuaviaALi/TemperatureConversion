@@ -15,37 +15,62 @@ namespace TemperatureConversion
 
         public double ConvertTempreture(double val, Convert from, Convert to)
         {
-            if (from == Convert.FAHRENHEIT)
+
+            if (from == Convert.FAHRENHEIT && to == Convert.FAHRENHEIT)
             {
-                if (to == Convert.FAHRENHEIT)
-                {
+                return val;
 
-                    return val;
-
-                }
-                else
-                {
-                    
-                    var firstval = (val - 32);
-                    var secondval = (firstval * .5556) ;
-                    return  secondval;
-                }
             }
-            else
+            else if (from == Convert.CELSIUS && to == Convert.CELSIUS)
             {
-                if (to == Convert.FAHRENHEIT)
-                {
-                    var firstval = (val * 1.8);
-                    var secondval = (firstval + 32);
-                    return secondval;
+                return val;
 
-                }
-                else
-                {
-
-                    return val;
-                }
             }
+            else if (from == Convert.KELVIN && to == Convert.KELVIN)
+            {
+                return val;
+
+            }
+                //FAHRENHEIT TO CELSIUS AND CELSIUS TO FAHRENHEIT
+            else if (from == Convert.FAHRENHEIT && to == Convert.CELSIUS)
+            {
+                var firstval = (val - 32);
+                var secondval = (firstval * .5556);
+                return secondval;
+            }
+            else if(from == Convert.CELSIUS && to == Convert.FAHRENHEIT)
+            {
+                var firstval = (val * 1.8);
+                var secondval = (firstval + 32);
+                return secondval;
+            }
+            //FAHRENHEIT TO KALVIN AND KALVIN TO FAHRENHEIT
+            else if (from == Convert.FAHRENHEIT && to == Convert.KELVIN)
+            {
+                var firstval = (val - 32);
+                var secondval = (firstval * 5 / 9 + 273.15);
+                return secondval;
+            }
+            else if (from == Convert.KELVIN && to == Convert.FAHRENHEIT)
+            {
+
+                return (val - 273.15) * 9 / 5 + 32;
+
+            }
+                 //CELSIUS TO KELVIN AND KELVIN TO CELSIUS
+           
+            else if (from == Convert.KELVIN && to == Convert.CELSIUS)
+            {
+                return val - 273;
+            }
+            else 
+            {
+                return val + 273;
+            }
+           
+            
+           
         }
     }
 }
+
