@@ -31,44 +31,45 @@ namespace TemperatureConversion
                 return val;
 
             }
-                //FAHRENHEIT TO CELSIUS AND CELSIUS TO FAHRENHEIT
+            //FAHRENHEIT TO CELSIUS
             else if (from == Convert.FAHRENHEIT && to == Convert.CELSIUS)
             {
                 var firstval = (val - 32);
                 var secondval = (firstval * .5556);
                 return secondval;
             }
-            else if(from == Convert.CELSIUS && to == Convert.FAHRENHEIT)
-            {
-                var firstval = (val * 1.8);
-                var secondval = (firstval + 32);
-                return secondval;
-            }
-            //FAHRENHEIT TO KALVIN AND KALVIN TO FAHRENHEIT
+            //FAHRENHEIT TO KELVIN
             else if (from == Convert.FAHRENHEIT && to == Convert.KELVIN)
             {
                 var firstval = (val - 32);
                 var secondval = (firstval * 5 / 9 + 273.15);
                 return secondval;
             }
+            //KELVIN TO FAHRENHEIT
             else if (from == Convert.KELVIN && to == Convert.FAHRENHEIT)
             {
 
                 return (val - 273.15) * 9 / 5 + 32;
 
             }
-                 //CELSIUS TO KELVIN AND KELVIN TO CELSIUS
-           
+            //KELVIN TO CELSIUS
             else if (from == Convert.KELVIN && to == Convert.CELSIUS)
             {
                 return val - 273;
             }
-            else 
+            //CELSIUS TO FAHRENHEIT
+
+            else if (from == Convert.CELSIUS && to == Convert.FAHRENHEIT)
+            {
+                var firstval = (val * 1.8);
+                var secondval = (firstval + 32);
+                return secondval;
+            }
+           //CELSIUS TO KELVIN
+            else
             {
                 return val + 273;
             }
-           
-            
            
         }
     }
